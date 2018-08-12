@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf ./Crypto/obj/Docker/publish/
+docker run -v "$(pwd)":/src microsoft/aspnetcore-build:2.0 bin/bash -c "cd /src && dotnet restore ./Crypto.sln && dotnet publish ./Crypto.sln -c Release -o ./obj/Docker/publish"
+docker-compose build

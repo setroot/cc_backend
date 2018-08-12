@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  crypto:
+    image: crypto
+    build:
+      context: ./Crypto
+      dockerfile: Dockerfile

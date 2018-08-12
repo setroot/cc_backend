@@ -1,0 +1,3 @@
+#! /bin/bash
+./build
+docker tag crypto:latest registry.heroku.com/sw-test-crypto/web; docker push registry.heroku.com/sw-test-crypto/web
