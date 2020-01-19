@@ -166,7 +166,7 @@ if(isset($_POST['package'])){
 
 ?>
 <html>
-	<head>
+	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link href="/assets/css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="/assets/css/vendor/animate/animate.min.css">
@@ -476,12 +476,13 @@ if(isset($_POST['package'])){
                     e.stopPropagation();
 
                     var code = $('#promocode').val();
+					var pckg = $('#package').val();
 
                     if($.trim(code)!='') {
 
                         if (!$('#validatePromoCode').hasClass('couponApplied')) {
 
-                            $.post('/actions/validateCoupon', {'code': code}, function (data) {
+                            $.post('/actions/validateCoupon', {'code': code, 'package': pckg}, function (data) {
                                 var res = data.split('$#');
                                 console.log(res);
                                 if (res[0] * 1 == 1) {
